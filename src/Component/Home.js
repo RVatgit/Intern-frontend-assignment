@@ -44,8 +44,8 @@ function Main(){
     }, [dispatch])
 
     const sortutil=(d,ac,str)=>{
-        const tmp=[...todostate].sort((a, b) => b[str]>a[str]?d:ac)
-        settodo(tmp)
+        if(str==='amount') settodo([...todostate].sort((a,b) => parseInt(b[str])>parseInt(a[str])?d:ac))
+        else settodo([...todostate].sort((a, b) => b[str]>a[str]?d:ac))
     }
 
     const arrange = (str)=>{
